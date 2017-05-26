@@ -1,0 +1,47 @@
+<!-- Share configuration related to this particular Share module extension, such as:
+     - Doclib action config
+     - Form config
+     - Aspect and Type config
+     - Advanced Search
+
+    Note. Any configuration related to the whole Share.war webapp
+           (i.e. not specific to this share extension) should be
+            placed in the environment specific config file:
+             alfresco/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml
+     -->
+<alfresco-config>
+
+    <!-- Used for the first task, when book metadata is to be verified (T1) -->
+    <config evaluator="task-type" condition="boppw:verifyMainBookMetadataT1Task">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="bookpub:ISBN" for-mode="view"/>
+                    <show id="bookpub:bookTitle" for-mode="view"/>
+                    <show id="bookpub:bookGenre" for-mode="view"/>
+                    <show id="bookpub:bookAuthors" for-mode="view"/>
+                    <show id="bookpub:nrOfPages" for-mode="view"/>
+                    <show id="bookpub:nrOfChapters" for-mode="view"/>
+                    <show id="bookpubw:publishingDate"/>
+                    <show id="transitions"/>
+                </field-visibility>
+                <appearance>
+                    <set id="bookInfoset" appearance="bordered-panel" label-id="form.header.bookinfo"/>
+                    <field id="bookpub:ISBN" label-id="form.label.isbn" set="bookInfoset" read-only="true"/>
+                    <field id="bookpub:bookTitle" label-id="form.label.bookTitle" set="bookInfoset" read-only="true" />
+                    <field id="bookpub:bookGenre" label-id="form.label.bookGenre" set="bookInfoset" read-only="true"/>
+                    <field id="bookpub:bookAuthors" label-id="form.label.bookAuthors" set="bookInfoset" read-only="true"/>
+                    <field id="bookpub:nrOfPages" label-id="form.label.nrOfPages" set="bookInfoset" read-only="true"/>
+                    <field id="bookpub:nrOfChapters" label-id="form.label.nrOfChapters" set="bookInfoset" read-only="true"/>
+                    <field id="bookpubw:publishingDate" set="chapterset" label-id="form.label.publishDate"
+                           mandatory="true">
+                        <control template="/org/alfresco/components/form/controls/date.ftl"/>
+                    </field>
+                    <set id="other"></set>
+                    <field id="transitions" set="other"/>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+
+</alfresco-config>
