@@ -11,8 +11,8 @@
      -->
 <alfresco-config>
 
-    <!-- Used for the first task, when book metadata is to be verified (T1) -->
-    <config evaluator="task-type" condition="bookpubw:verifyMainBookMetadataT1Task">
+    <!-- Used for the first task, when book metadata is to be reviewed (T1) -->
+    <config evaluator="task-type" condition="bookpubw:reviewBookInfoT1Task">
         <forms>
             <form>
                 <field-visibility>
