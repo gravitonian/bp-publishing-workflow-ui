@@ -2,43 +2,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.acme.bestpublishing</groupId>
+
     <artifactId>publishing-workflow-ui</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>publishing-workflow-ui Share Jar Module - SDK 3</name>
-    <description>Share JAR Module (to be included in the share.war) - SDK 3</description>
+
+    <!-- UPDATED -->
+    <name>BestPub Publishing Workflow UI</name>
+    <description>Best Publishing Workflow user interface configuration such as task forms</description>
     <packaging>jar</packaging>
 
+    <!-- ADDED -->
+    <parent>
+        <groupId>org.acme.bestpublishing</groupId>
+        <artifactId>best-publishing-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <properties>
-        <!-- Alfresco Maven Plugin version to use -->
-	    <alfresco.sdk.version>3.0.0</alfresco.sdk.version>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <!-- Properties used in dependency declarations, you don't need to change these -->
-        <alfresco.groupId>org.alfresco</alfresco.groupId>
-
-        <!-- Alfresco Share webapp version, this is the original Alfresco webapp that will be
-            customized and then deployed and run by the tomcat maven plugin when
-            executing for example $ mvn clean install alfresco:run -->
-        <alfresco.share.version>5.2.d</alfresco.share.version>
-
-        <!-- Default is to run with a Community edition, change to 'enterprise' if using Enterprise edition -->
-        <maven.alfresco.edition>community</maven.alfresco.edition>
-
-        <!-- Alfresco Surf version, if you change Share version you might need to change Surf version -->
-        <alfresco.surf.version>6.11</alfresco.surf.version>
-
         <!-- Since alfresco.war (i.e. the Platform/Repository) is already running on port 8080, we run Share.WAR on port 8081.
             If Alfresco Platform is not running, then generate a platform-jar-module and start it up. -->
         <maven.tomcat.port>8081</maven.tomcat.port>
-
-        <!-- JRebel Hot reloading of classpath stuff and web resource stuff -->
-        <jrebel.version>1.1.6</jrebel.version>
-
-        <!-- Compile with Java 7, default is 5 -->
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
     <dependencies>
